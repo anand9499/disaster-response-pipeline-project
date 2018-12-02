@@ -1,10 +1,22 @@
+
 import sys
 import pandas as pd
-import numpy as np
-from sqlalchemy import create_engine
+import sqlite3
 
 
 def load_data(messages_filepath, categories_filepath):
+    '''
+    Reads data from messages and categories file and then outputs a merged dataframe.
+
+
+    Args:
+    messages_filepath : messages file.
+    categories_filepath : categories file.
+
+    Returns:
+    df : merged dataframe.
+    '''
+
     messages = pd.read_csv(messages_filepath)
     categories = pd.read_csv(categories_filepath)
     df = pd.merge(messages, categories, on='id')
@@ -12,6 +24,18 @@ def load_data(messages_filepath, categories_filepath):
 
 
 def clean_data(df):
+    '''
+
+    Reads in the merged dataframe and prepares it for ML model.
+
+    Args:
+    df : dataframe.
+
+    Returns:
+    df : dataframe prepared for ML model.
+    '''
+
+
     categories = df['categories'].str.split(';', expand=True)
     row = categories.iloc[0, :]
     category_colnames = row.apply(lambda x: x[:-2]).values.tolist()
@@ -27,9 +51,23 @@ def clean_data(df):
 
 
 def save_data(df, database_filename):
-    engine = create_engine('sqlite:///' + database_filename)
-    table_name = 'disasterResponse'
-    df.to_sql(table_name, engine, index=False, if_exists='replace')
+
+    '''
+
+    Saves the pandas dataframe to a sqlite Database.
+
+    Args:
+    df : dataframe.
+    database_filename : name of database.
+
+    Returns:
+    none
+    '''
+
+
+    conn = sqlite3.connect(database_filename)
+    table_name = 'disaster'
+    df.to_sql(table_name, con= conn, if_exists='replace', index=False)
 
 
 def main():
@@ -43,6 +81,8 @@ def main():
 
         print('Cleaning data...')
         df = clean_data(df)
+
+        # print(df.shape)
 
         print('Saving data...\n    DATABASE: {}'.format(database_filepath))
         save_data(df, database_filepath)
