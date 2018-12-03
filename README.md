@@ -1,6 +1,6 @@
 # Disaster Response Pipeline Project
 
-In this project, the dataset consists of messages that were sent by people during disaster events. I used this dataset to build a model that classifies these messages , so that these messages could then be forwarded to appropriate relief agency.
+In this project, the dataset consists of messages that were sent by people during disaster events. I used this dataset to build a model that classifies these messages , so that these messages could be then forwarded to the appropriate relief agency.
 It includes a web app(using Flask Framework) where an emergency worker can input a new message and get classification results in various categories. The web app also displays visualisations (using Plotly) of the data.
 
 This project showcases my data engineering skills including ETL and ML Pipeline preparation, which makes use of model through a web app API and data visualisaton .
