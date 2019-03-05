@@ -35,4 +35,8 @@ This project showcases my data engineering skills including ETL and ML Pipeline 
 
 3. Go to http://0.0.0.0:3001/
 
+![webapp_screenshot](https://user-images.githubusercontent.com/16004232/53821796-73155b80-3f94-11e9-9149-7b8b1812c9b1.JPG)
+
+![webapp_screenshot1](https://user-images.githubusercontent.com/16004232/53821813-7f99b400-3f94-11e9-87ec-54368c69ca45.JPG)
+
 
