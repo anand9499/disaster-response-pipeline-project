@@ -1,9 +1,9 @@
 # Disaster Response Pipeline Project
 
-In this project, the dataset consists of messages that were sent by people during disaster events. I used this dataset to build a model that classifies these messages , so that these messages could be then forwarded to the appropriate relief agency.
-It includes a web app(using Flask Framework) where an emergency worker can input a new message and get classification results in various categories. The web app also displays visualisations (using Plotly) of the data.
+### Project Motivation
+In this project, we will build a model to classify messages that were sent during disasters. There are 36 pre-defined categories such as Aid Related, Medical Help, Search and Rescue etc. By classifying these messages, we can help direct these messages to appropriate disaster relief agency. This project involves building of a basic ETL and ML Pipeline to facilitate this task. This is also a multi-label classification task , since a message can belong to one or more categories.
 
-This project showcases my data engineering skills including ETL and ML Pipeline preparation, which makes use of model through a web app API and data visualisaton .
+Finally, this project contains a web app, built using Flask framework, where we can input a message and get classification results.
 
 ### Files in repo
     -  app
@@ -39,4 +39,5 @@ This project showcases my data engineering skills including ETL and ML Pipeline 
 
 ![webapp_screenshot1](https://user-images.githubusercontent.com/16004232/53821813-7f99b400-3f94-11e9-87ec-54368c69ca45.JPG)
 
-
+### Acknowledgements
+We will be using the dataset provided by [Figure Eight](https://www.figure-eight.com/) that contains messages sent during disaster events.
